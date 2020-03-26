@@ -1,0 +1,10 @@
+# Courses
+
+_pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+.Python
+.idea/
+*.sqlite3

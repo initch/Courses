@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+    <title>{{ course.name }}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+<p>
+    <a href="{% url 'courses:course_index' %}">courses</a> >
+    {{ course.name }}
+</p>
+
+<table class="table">
+    <tr>
+        <th>Course</th>
+        <th>课号</th>
+        <th>教师</th>
+    </tr>
+    <tr>
+        <td>{{ course.name }}</td>
+        <td>{{ course.num }}</td>
+        <td>{{ course.teacher }}</td>
+    </tr>
+</table>
+{% if course.board != None %}
+<a class="btn btn-sm btn-primary" href="{% url 'boards:topics' course.board.id %}">{{ course.name }}讨论区</a>
+{% endif %}
+</body>

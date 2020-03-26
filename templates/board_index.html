@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<head>
+    <title>Boards</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+ </head>
+
+<body>
+    <h2>boards</h2>
+    <p>This is index page.</p>
+    <table class="table">
+        <tr>
+            <th>Board</th>
+            <th>Posts</th>
+            <th>Course</th>
+        </tr>
+        {% for board in boards %}
+        <tr>
+            <td>
+                <a href="{% url 'boards:topics' board.id %}">{{ board.name }}</a>
+                <small class="text-muted d-block">{{ board.description }}</small>
+            </td>
+            <td class="align-middle">0</td>
+            <td class="align-middle">
+                {% for course in board.course.all %}
+                <a href="{% url 'courses:course_details' course.id %}">{{ course.name }}</a>
+                    <br>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

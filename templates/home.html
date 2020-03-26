@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        <li><a href="{% url 'courses:course_index' %}">Courses</a></li>
+        <li><a href="{% url 'boards:board_index' %}">Boards</a></li>
+    </ul>
+{% endblock %}

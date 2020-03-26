@@ -1,0 +1,26 @@
+{% load static %}
+<head>
+    <title>{{ board.name }}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+
+<body>
+    <a href="{% url 'boards:board_index' %}">boards</a> >
+    {{ board.name }}
+    <table class="table">
+        <tr>
+            <th>Topic</th>
+            <th>Replies</th>
+            <th>updated_at</th>
+        </tr>
+        {% for topic in board.topics.all %}
+        <tr>
+            <td>{{ topic.subject }}</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+<a class="btn btn-light" href="{% url 'home:home' %}">home</a>
+</body>
+</html>
