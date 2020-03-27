@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Home</li>
+{% endblock %}
+
 {% block content %}
     <ul>
         <li><a href="{% url 'courses:course_index' %}">Courses</a></li>

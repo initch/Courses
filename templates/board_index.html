@@ -1,13 +1,13 @@
-{% load static %}
-<html>
-<head>
-    <title>Boards</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
- </head>
+{% extends 'base.html' %}
+{% block title %}{{ board.name }}{% endblock %}
 
-<body>
-    <h2>boards</h2>
-    <p>This is index page.</p>
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active">Boards</li>
+{% endblock %}
+
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'boards:new_board' %}">New Board</a>
     <table class="table">
         <tr>
             <th>Board</th>
@@ -31,5 +31,4 @@
         {% endfor %}
     </table>
 
-</body>
-</html>
+{% endblock %}

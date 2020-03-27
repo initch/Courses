@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     {% block stylesheet %}{% endblock %}
   </head>
+
   <body>
     {% block body %}
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -23,7 +24,10 @@
       </div>
     </nav>
 
-    <br>
+    <ol class="breadcrumb">
+        {% block breadcrumb %}
+        {% endblock %}
+    </ol>
     {% block content %}
     {% endblock %}
 
