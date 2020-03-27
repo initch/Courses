@@ -1,5 +1,9 @@
 # Courses
-当前功能：课程信息展示与讨论框架。
+2020.3.27更新：
+- 新增表单：NewBoardForm，用户可提交表单创建Board。
+- 重构模板：所有html文件使用同一base.html模板，完善了顶部和面包屑导航栏。
+
+当前功能：课程信息展示与讨论框架，创建新讨论区并提交第一个topic。
 
 ## Apps
 |app|models|views|说明|
