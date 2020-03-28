@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ board.name }}{% endblock %}
+{% block title %}{{ course.name }}{% endblock %}
 
 {% block breadcrumb %}
     <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -20,7 +20,10 @@
         <td>{{ course.teacher }}</td>
     </tr>
 </table>
-{% if course.board != None %}
-<a class="btn btn-sm btn-primary" href="{% url 'boards:topics' course.board.id %}">{{ course.name }}讨论区</a>
+{% if course.board is not None %}
+    <a class="btn btn-sm btn-primary" href="{% url 'boards:topics' course.board.id %}">{{ course.name }}讨论区</a>
+{% else %}
+    <p>该课程暂无讨论区>_<   您可以为它：</p>
+    <a class="btn btn-sm btn-primary" href="{% url 'courses:create_course_board' course.id %}">建立{{ course.name }}讨论区</a>
 {% endif %}
 {% endblock %}

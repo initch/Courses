@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ board.name }}{% endblock %}
+{% block title %}Boards{% endblock %}
 
 {% block breadcrumb %}
     <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -9,18 +9,22 @@
 {% block content %}
     <a class="btn btn-primary" href="{% url 'boards:new_board' %}">New Board</a>
     <table class="table">
+    <thead class="thead-inverse">
         <tr>
             <th>Board</th>
-            <th>Posts</th>
+            <th>Topics</th>
             <th>Course</th>
         </tr>
+    </thead>
         {% for board in boards %}
         <tr>
             <td>
                 <a href="{% url 'boards:topics' board.id %}">{{ board.name }}</a>
                 <small class="text-muted d-block">{{ board.description }}</small>
             </td>
-            <td class="align-middle">0</td>
+            <td class="align-middle">
+                {{ board.topics.count }}
+            </td>
             <td class="align-middle">
                 {% for course in board.course.all %}
                 <a href="{% url 'courses:course_details' course.id %}">{{ course.name }}</a>
